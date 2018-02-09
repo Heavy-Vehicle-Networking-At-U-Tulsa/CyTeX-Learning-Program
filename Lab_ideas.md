@@ -21,6 +21,7 @@
 * Introduce BBB and build on top of James examples?
 
 # Encryption
+* Obfuscation - plot different sudo random generators
 ### Hashing
 * powershell comparing hash files- what are they
 * Power of hash- Windows password crack
