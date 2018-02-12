@@ -8,7 +8,7 @@
 	- Teensyduino Install and 3.2 vs. 3.6
 	- LED Light control examples(PWM)
 		-Button Press to turn on a light (Digital Read and Write)
-* Introduction to CAN presentation and activity
+* Introduction to CAN presentation and activity (~Presentations/Can Bus basics.pptx~)
 * 3 Sending a Can Message (Teensy 3.6)
 	- Using FlexCAN library
 	- Provide Schematics
