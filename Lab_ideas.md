@@ -1,15 +1,15 @@
 # CAN bus
-	- The following are descriptions of labs that need to be written. I have included a general order I believe these should be compeleted. 
+* The following are descriptions of labs that need to be written. I have included a general order I believe these should be compeleted. 
 ### Teensy Projects
 * 1 Intro to Programming with Arduino
-	- Getting Started (_Blink_)
+	- ~Getting Started (_Blink_)~
 	- Blink without Delays
 	- Introduction to Serial Console (_Serial Command Window_)
 * 2 Intro to Teensy
 	- Teensyduino Install and 3.2 vs. 3.6
 	- LED Light control examples(_PWM_)
 		-Button Press to turn on a light (_Digital Read and Write_)
-* Introduction to CAN presentation and activity (_Presentations/Can Bus basics.pptx_)
+* ~Introduction to CAN presentation and activity (_Presentations/Can Bus basics.pptx_)~
 * 3 Sending a Can Message (_Teensy 3.6_)
 	- Using FlexCAN library
 	- Provide Schematics
