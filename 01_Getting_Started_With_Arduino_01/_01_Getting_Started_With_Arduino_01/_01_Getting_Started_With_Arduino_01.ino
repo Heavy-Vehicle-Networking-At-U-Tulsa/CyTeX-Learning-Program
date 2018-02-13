@@ -1,6 +1,7 @@
 /* 
  *  Hello and welcome to your first tutorial using the Arduino IDE. Congratulations on
- *  successfully downloading the IDE. 
+ *  successfully downloading the IDE. This file type is referred to as a sketch file
+ *  and has a .ino file extension.
  *  
  *  I hope you enjoy your time working with us, we look forward to seeing how far you 
  *  can go!
