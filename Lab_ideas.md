@@ -6,7 +6,7 @@
 	- ~Blink without Delays~
 	- ~Introduction to Serial Console (_Serial Command Window_)~
 * 2 Intro to Teensy
-	- Teensyduino Install and 3.2 vs. 3.6
+	- Teensyduino Install and 3.2 vs. 3.6 (_This may need to be earlier on_)
 	- LED Light control examples(_PWM_)
 		-Button Press to turn on a light (_Digital Read and Write_)
 * ~Introduction to CAN presentation and activity (_Presentations/Can Bus basics.pptx_)~
