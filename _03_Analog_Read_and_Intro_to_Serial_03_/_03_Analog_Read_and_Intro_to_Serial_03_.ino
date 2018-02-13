@@ -2,6 +2,12 @@
  * For this lab you will need a potentiometer along with your teensy. Please connect the middle of the pot. to pin 
  * 5, then connect the outside pins to +5V and Ground. 
  * 
+ * A potentiometer is a three-terminal resistor with a sliding or rotating contact that forms an adjustable voltage 
+ * divider. If only two terminals are used, one end and the wiper, it acts as a variable resistor or rheostat.
+ * 
+ * In other words, in this lab a potentiometer will be used to vary the voltage entering the device. This will be 
+ * displayed in the serial monitor as numbers between 0 and 1028. 
+ * 
  * Please consult your colleagues to determine where to find these materials if you do not already know
  * where they are. 
  * 
