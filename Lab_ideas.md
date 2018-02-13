@@ -12,8 +12,8 @@ labs that have been completed are included in strikethrough.
 * ~Introduction to CAN presentation and activity (_Presentations/Can Bus basics.pptx_)~
 * 3 Sending a Can Message (_Teensy 3.6_)
 	- Using FlexCAN library
-	- Using MCP2515 Library
-	- Using LIN
+	- Using MCP2515 Library (_added by Duy_)
+	- Using LIN (_added by Duy_)
 	- Provide Schematics
 	- Send to and From yourself
 * 6 Receive Messages from the Dash Display
