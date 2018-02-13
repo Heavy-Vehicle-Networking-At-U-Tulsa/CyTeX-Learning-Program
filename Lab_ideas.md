@@ -2,7 +2,8 @@
 	- The following are descriptions of labs that need to be written. I have included a general order I believe these should be compeleted. 
 ### Teensy Projects
 * 1 Intro to Programming with Arduino
-	- Getting Started
+	- Getting Started (_Blink_)
+	- Blink without Delays
 	- Introduction to Serial Console (_Serial Command Window_)
 * 2 Intro to Teensy
 	- Teensyduino Install and 3.2 vs. 3.6
