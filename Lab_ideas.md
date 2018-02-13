@@ -34,6 +34,7 @@ labs that have been completed are included in strikethrough.
 	- Identify Tachometer and Speedometer messages
 
 ### Protocol
+* bit shifting lab, hex conversion, binary conversion? maybe goes in the teensy section?
 * 4 J1939 - Find info from traffic? - wheel speed, engine speed, door lock/unlock, etc, 
 * Parsing traffic Data - network class assignment - (_need to learn python first_)
 * Oscilliscope decode message
