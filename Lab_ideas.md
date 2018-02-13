@@ -7,8 +7,10 @@ labs that have been completed are included in strikethrough.
 	- ~Getting Started (_Blink_)~
 	- ~Blink without Delays~
 	- ~Introduction to Serial Console (_Serial Command Window_)~
-	- LED Light control examples(_PWM_)
-		-Button Press to turn on a light (_Digital Read and Write_)
+	- ~LED Light control examples(_PWM_)~
+		- ~Button Press to turn on a light (_Digital Read and Write_)~
+	- Create a sketch using Serial Console, a button/potentiometer, and an LED.
+	
 * ~Introduction to CAN presentation and activity (_Presentations/Can Bus basics.pptx_)~
 * 3 Sending a Can Message (_Teensy 3.6_)
 	- Using FlexCAN library
