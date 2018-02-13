@@ -9,10 +9,12 @@ labs that have been completed are included in strikethrough.
 	- ~Introduction to Serial Console (_Serial Command Window_)~
 	- ~LED Light control examples(_PWM_)~
 		- ~Button Press to turn on a light (_Digital Read and Write_)~
-	- Create a sketch using Serial Console, a button/potentiometer, and an LED.
+	- ~Create a sketch using Serial Console, a button/potentiometer, and an LED. (Final Lab for Introduction)~
 	
 * ~Introduction to CAN presentation and activity (_Presentations/Can Bus basics.pptx_)~
 * 3 Sending a Can Message (_Teensy 3.6_)
+	- ~Bit Shifting and Bit Wise Operations powerpoints~
+	- Bit Wise Operations Assignment
 	- Using FlexCAN library
 	- Using MCP2515 Library (_added by Duy_)
 	- Using LIN (_added by Duy_)
@@ -36,7 +38,6 @@ labs that have been completed are included in strikethrough.
 	- Identify Tachometer and Speedometer messages
 
 ### Protocol
-* bit shifting lab, hex conversion, binary conversion? maybe goes in the teensy section?
 * 4 J1939 - Find info from traffic? - wheel speed, engine speed, door lock/unlock, etc, 
 * Parsing traffic Data - network class assignment - (_need to learn python first_)
 * Oscilliscope decode message
