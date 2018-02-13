@@ -4,7 +4,7 @@
 * 1 Intro to Programming with Arduino
 	- ~Getting Started (_Blink_)~
 	- ~Blink without Delays~
-	- Introduction to Serial Console (_Serial Command Window_)
+	- ~Introduction to Serial Console (_Serial Command Window_)~
 * 2 Intro to Teensy
 	- Teensyduino Install and 3.2 vs. 3.6
 	- LED Light control examples(_PWM_)
