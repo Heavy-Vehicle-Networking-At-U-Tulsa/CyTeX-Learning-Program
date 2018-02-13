@@ -1,7 +1,7 @@
 # Getting Started with Arduino
 ## Welcome to your first sketch
 ### What you will need:
-* In order to run the above file you will need to visit www.arduino.com and download the 
+* In order to run the above file you will need to visit www.arduino.cc and download the 
 latest version of their IDE.
 * Walk through the Arduino setup wizard and open the software.
 * Using File->Open-> Navigate to where the above .ino file is stored in this repository
