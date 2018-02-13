@@ -3,7 +3,7 @@
 ### Teensy Projects
 * 1 Intro to Programming with Arduino
 	- ~Getting Started (_Blink_)~
-	- Blink without Delays
+	- ~Blink without Delays~
 	- Introduction to Serial Console (_Serial Command Window_)
 * 2 Intro to Teensy
 	- Teensyduino Install and 3.2 vs. 3.6
@@ -23,8 +23,8 @@
 *  DOS attack
 	- Create a Device that when powered on crashes the bus using message priority (_refer to the CAN powerpoint_)
 	- Create a Device that after 30 seconds crashes the bus
-### Tools
-# Vehicle Spy
+# Tools
+### Vehicle Spy
 * 5 Connect to the Truck (_Using J1939 Protocol_)
 	- Key on RUN not start Identify CAN Messages
 	- Start Truck
