@@ -1,76 +1,65 @@
 /*
- * For this lab you will need a potentiometer along with your teensy. Please connect the middle of the pot. to pin 
- * 5, then connect the outside pins to +5V and Ground. 
+ * This lab will draw on knowledge from previous labs. Please reference your questions to previous
+ * labs with any functions you are not familiar with.
  * 
- * A potentiometer is a three-terminal resistor with a sliding or rotating contact that forms an adjustable voltage 
- * divider. If only two terminals are used, one end and the wiper, it acts as a variable resistor or rheostat.
+ * The following is required to complete this lab:
+ * - Arduino Device 
+ * - a switch or button
+ * - an LED
  * 
- * In other words, in this lab a potentiometer will be used to vary the voltage entering the device. This will be 
- * displayed in the serial monitor as numbers between 0 and 1028. 
+ * If you do not know where to obtain these pieces by consult your colleagues or
+ * supervisor. 
  * 
- * Please consult your colleagues to determine where to find these materials if you do not already know
- * where they are. 
+ * Begin by connecting the external LED to the board by placing one pin on the ground
+ * connect the other pin to pin 13 on the board. 
  * 
+ * Then connect your switch/button on one end to a 5V source pin. Connect the other 
+ * side to a pin that can be read, here we have chosen pin 5. 
  * 
+ * In this lab you will be creating a button that when pressed turns on a light and 
+ * when released the light turns off. 
+ * 
+ * - Maintenance 
  */
+ 
+int led = 0; //Here we define the LED location, please change this to your chosen pin (13)
+int blinkButton = 0; //Here we define where the button will be located, please change this to your chosen pin (5)
 
-/*
- * In the following, you will learn how to read inputs. Additionally you will learn how to use the serial monitor 
- * Reads an analog input on pin 5, prints the result to the serial monitor.
- * 
- * The Serial Monitor can be quickly accessed by Ctrl+Shift+M or by clicking the magnifying glass in the top right
- * corner of the screen
- * 
- * Graphical representation is available using serial plotter (Tools > Serial Plotter menu)
- * 
- * 
- * Enjoy!
- * 
- * - Maintenance
-*/
-
-int led = 13;
-
-
-// the setup routine runs once when you press reset:
 void setup() {
-  // initialize serial communication at 9600 bits per second: (this is the speed at which data is transferred, other speed options
-  // can be seen on the serial console. 
-  Serial.begin(9600);
   pinMode(led, OUTPUT); 
 }
 
-
-// the loop routine runs over and over again forever:
-void loop() {
-  // read the input on analog pin 0:
-  
-  int sensorValue = analogRead(A0); // change this to the pin that the middle output of your potentiometer is connected to
-  
-  // print out the value you read:
-  
-  //Serial.print("Sensor Value: "); // uncomment this line after running through the software once.
-  Serial.println(sensorValue); // This uses the function println() from the Serial class to display on the console
-  
-  delay(1);        // delay in between reads for stability, this delay ensures that you do not overload anything by turning too quickly
+void loop() {  
+  if (digitalRead(___)){ // if the button/switch is closed place the variable for your button in the blank
+    delay(20); // this is called debouncing, and is required for button pressing
+    
+    while (digitalRead(___)){ //this initializes a loop that will stay as long as the arguement is true. rechecks to ensure the button is pressed.
+       
+       // add code here to turn the light on
+       
+       }   
+    }
+  digitalWrite(led, LOW); // turn the light off if the button is not pressed. 
 }
-
 /*
- * In this lab you will become familiar with the Analog Read function
- * You will also be introduced to the Serial console. 
+ * In this lab you will use knowledge from previous labs to create a button that turns a light on
+ * 
  * 
  * Instructions:
- * Change sensorValue to read for your potentiometer. 
- * Run the code as is and find the serial console
- * Then uncomment line 38 and run the software again. 
+ * Change Led and button pin locations
+ * Fill in digitalRead functions with the button variable
+ * Tell the led to turn on while the button is pressed
  * 
- * 
+ * Extra:
+ * Add a Serial Command Window that tells the user when the state has changed. 
  * 
  * Questions for your notebook:
- * 1) What is the difference between Serial.println() and Serial.print()
- * 2) What is the difference between the analogRead() function and digitalRead() function from previous labs
+ * 1) Why did we use a digital write instead of an Analog write.
+ * 2) What baudrate did you use for the Serial Console. 
  * 
- * Feel free to play around with the Serial Console until you are comfortable with it. Try initializing at different Baud Rates (Data transfer speeds)
+ * The example code will be a great tool for you. If you are not familiar with a function,
+ * you can right click on the highlighted specific function and click find in reference. This
+ * if helpful when venturing into new tasks.
  * 
  * - Maintenance
  */
