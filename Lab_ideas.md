@@ -1,5 +1,6 @@
 # CAN bus
-* The following are descriptions of labs that need to be written. I have included a general order I believe these should be compeleted. 
+* The following are descriptions of labs that need to be written. I have included a general order I believe these should be compeleted.
+labs that have been completed are included in strikethrough. 
 ### Teensy Projects
 * 1 Intro to Programming with Arduino (_Using Teensy_)
 	- ~Teensyduino Install and 3.2 vs. 3.6~
