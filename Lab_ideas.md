@@ -98,5 +98,6 @@ labs that have been completed are included in strikethrough.
 * Y cable
 * Break out box
 * altium? may be better taught hands on
+* intro to linux
 
 
