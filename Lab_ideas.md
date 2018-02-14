@@ -16,11 +16,14 @@ labs that have been completed are included in strikethrough.
 	- ~Bit Shifting and Bit Wise Operations powerpoints~
 	- ~Bit Wise Operations Assignment~
 	- ~Bit Operations and Bit Shifting in Arduino~
-	- Using FlexCAN library
-	- Using MCP2515 Library (_added by Duy_)
-	- Using LIN (_added by Duy_)
-	- Provide Schematics
-	- Send to and From yourself
+	- Using FlexCAN library (_simple CAN bus script use Teensy 3.6_)
+		- Provide Schematics
+		- Send to and From yourself
+	- Use bit shifting to transmit large numbers across a CAN network
+		- _JT's Encoder Project_
+	- Using MCP2515 Library (_added by Duy_) (_This may come later and not be included in the intro_)
+	- Using LIN (_added by Duy_) (_Definitely will not be in the introduction to CAN section_)
+	
 * 5 Receive Messages from the Dash Display
 	- Identify Tachometer and Speedometer (_manipulate speedometer with tone ring_)
 	- Compare values with truck values
