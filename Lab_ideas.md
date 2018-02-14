@@ -14,7 +14,8 @@ labs that have been completed are included in strikethrough.
 * ~Introduction to CAN presentation and activity (_Presentations/Can Bus basics.pptx_)~
 * 2 Sending a Can Message (_Teensy 3.6_)
 	- ~Bit Shifting and Bit Wise Operations powerpoints~
-	- Bit Wise Operations Assignment
+	- ~Bit Wise Operations Assignment~
+	- ~Bit Operations and Bit Shifting in Arduino~
 	- Using FlexCAN library
 	- Using MCP2515 Library (_added by Duy_)
 	- Using LIN (_added by Duy_)
