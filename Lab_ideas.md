@@ -64,6 +64,7 @@ labs that have been completed are included in strikethrough.
 
 # Encryption
 * Obfuscation - plot different sudo random generators
+* _John, I will let you write these as you have more experience than Me, Hayden, in these areas_
 ### Hashing
 * powershell comparing hash files- what are they
 * Power of hash- Windows password crack
