@@ -25,25 +25,25 @@ labs that have been completed are included in strikethrough.
 		- Using MCP2515 Library (_added by Duy_) (_This may come later and not be included in the intro_)
 		- Using LIN (_added by Duy_) (_Definitely will not be in the introduction to CAN section_)
 	
-* 5 Receive Messages from the Dash Display
+* 6 Receive Messages from the Dash Display
 	- Identify Tachometer and Speedometer (_manipulate speedometer with tone ring_)
 	- Compare values with truck values
-* 6 Playing with the dash - like the alarm clock
+* 7 Playing with the dash - like the alarm clock
 	- Using RTC functionality determine the time and display it on the Dash Display
 	- Supervisor Sign off
-* 7 DOS attack
+* 8 DOS attack
 	- Create a Device that when powered on crashes the bus using message priority (_refer to the CAN powerpoint_)
 	- Create a Device that after 30 seconds crashes the bus
 # Tools
 ### Vehicle Spy
-* 4 Connect to the Truck (_Using J1939 Protocol_)
+* 5 Connect to the Truck (_Using J1939 Protocol_)
 	- Key on RUN not start Identify CAN Messages
 	- Start Truck
 	- Compare before and After
 	- Identify Tachometer and Speedometer messages
 
 ### Protocol
-* 3 J1939 - Find info from traffic? - wheel speed, engine speed, door lock/unlock, etc, 
+* 4 J1939 - Find info from traffic? - wheel speed, engine speed, door lock/unlock, etc, 
 * Parsing traffic Data - network class assignment - (_need to learn python first_)
 * Oscilliscope decode message
 	- Do this by hand
@@ -56,7 +56,7 @@ labs that have been completed are included in strikethrough.
 * TU_RP120 
 
 ### Python
-* Intro to python
+* ~Intro to python (_This will be accomplished using Code Academy_)~
 * Introduce BBB and build on top of James examples?
 
 
