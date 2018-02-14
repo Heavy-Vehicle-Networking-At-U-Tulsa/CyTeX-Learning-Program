@@ -21,8 +21,9 @@ labs that have been completed are included in strikethrough.
 		- Send to and From yourself
 	- Use bit shifting to transmit large numbers across a CAN network
 		- _JT's Encoder Project_
-	- Using MCP2515 Library (_added by Duy_) (_This may come later and not be included in the intro_)
-	- Using LIN (_added by Duy_) (_Definitely will not be in the introduction to CAN section_)
+	- Extra Projects to add:
+		- Using MCP2515 Library (_added by Duy_) (_This may come later and not be included in the intro_)
+		- Using LIN (_added by Duy_) (_Definitely will not be in the introduction to CAN section_)
 	
 * 5 Receive Messages from the Dash Display
 	- Identify Tachometer and Speedometer (_manipulate speedometer with tone ring_)
