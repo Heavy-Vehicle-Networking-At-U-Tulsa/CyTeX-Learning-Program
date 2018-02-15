@@ -16,7 +16,6 @@
 
 /*
  * In the following, you will learn how to read inputs. Additionally you will learn how to use the serial monitor 
- * Reads an analog input on pin 5, prints the result to the serial monitor.
  * 
  * The Serial Monitor can be quickly accessed by Ctrl+Shift+M or by clicking the magnifying glass in the top right
  * corner of the screen
