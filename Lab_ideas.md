@@ -83,3 +83,7 @@ labs that have been completed are included in strikethrough.
 * Teensy Wifi
 ### TU_RP1210
 * Learn about the server?
+
+### Put it Somewhere
+* Y cable
+* Break out box
