@@ -79,7 +79,7 @@ void loop() {
   * the light stay on for 2 seconds and off for .5 seconds. 
   * 
   * Questions to record in your notebook:
-  * Did you notice a difference?
+  * Did you notice a difference between the light blinking before and after?
   * What portion of the code did you change?
   * Why might the Delay() function not be useful in more complicated systems?
   * 

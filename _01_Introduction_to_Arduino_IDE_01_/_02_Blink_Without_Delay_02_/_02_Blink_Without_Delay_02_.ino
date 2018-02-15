@@ -62,7 +62,7 @@ void loop()
  * Questions for your notebook:
  *  Why is blinking light this way better than using the Delay() function?
  *  Are there times using Delay may have advantages?
- *  Did this lab help you understand the difference?
+ *  Did this lab help you understand why using Delay() can be a bad thing??
  *  
  *  Please consult your supervisor or colleagues if any of the answers to these questions are confusing
  *  
