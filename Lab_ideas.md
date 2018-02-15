@@ -84,6 +84,20 @@ labs that have been completed are included in strikethrough.
 ### TU_RP1210
 * Learn about the server?
 
-### Put it Somewhere
+# Fun Stuff that we all could learn more about too
+### Jtag intro
+* Find something to jtag - jtagulator
+### flashrom
+* Find something to download memory from
+* saelea and busPirate
+### Programmer
+* Download data from chip - that may be the extent of our knowledge
+
+
+# Put it Somewhere
 * Y cable
 * Break out box
+* altium? may be better taught hands on
+* intro to linux
+
+
