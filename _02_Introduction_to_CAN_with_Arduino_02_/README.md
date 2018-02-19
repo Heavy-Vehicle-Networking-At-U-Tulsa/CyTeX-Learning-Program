@@ -57,17 +57,3 @@ It is recommended to remove the folder with the original FlexCAN library so you 
    * Interprets data based on PGNs for Cruise-Control Wheel Speed, Vehicle Distance, Engine Electronic Controller and High Resolution Vehicle Distance. 
    * Displays some signals defined in the standard.
    * Receive messages are gathered based on Polling.
-
-### Future Lessons
-
-7. Perform an test to determine baudrate before entering the logging loop. Sometimes this is refered to as autobaud.
-8. Send simple messages on both channels for the Teensy 3.6
-9. Transmit a quadrature encoder input counter on CAN.
-10. Interpret J1939 Wheel Based Vehicle Speed and Engine Speed based on interrupts and masks
-11. Respond to J1939 requests for Component ID
-12. Request J1939 Component ID
-13. Send arbitrary messages over J1939 Transport Layer
-14. Receive arbitrary messages over the Transport Protocol in J1939 
-15. Claim a J1939 Address
-16. Interface with CAN using HID drivers.
-17. Request ISO Messages
