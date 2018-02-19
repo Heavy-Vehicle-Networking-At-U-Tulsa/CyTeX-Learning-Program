@@ -57,6 +57,7 @@ labs that have been completed are included in strikethrough.
 
 ### Python
 * ~Intro to python (_This will be accomplished using Code Academy_)~
+* can't get pip? add a system path - it'll take two seconds
 * Introduce BBB and build on top of James examples?
 
 
