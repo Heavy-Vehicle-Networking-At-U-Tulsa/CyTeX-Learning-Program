@@ -80,6 +80,7 @@ if __name__ == "__main__":
     What do you notice about the two algorithms? How would you rate them now?
     Think about why the results happen based on the mathematical operation. 
     Why may one of the algorithms not be good for computer security?
+    Does one algorithm violate any of the three qualifying methods in evaluating a RNG?
     Play with the viewing angle. Does python's random class look different at other angles?
 
 '''
