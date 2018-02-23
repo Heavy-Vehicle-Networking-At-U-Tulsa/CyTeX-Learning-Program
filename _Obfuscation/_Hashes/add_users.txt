@@ -1,0 +1,39 @@
+Script started on Thu Feb 22 20:56:46 2018
+]0;root@kali: ~[01;31mroot@kali[00m:[01;34m~[00m# addsuer[K[K[K[Kuser tim
+Adding user `tim' ...
+Adding new group `tim' (1000) ...
+Adding new user `tim' (1000) with group `tim' ...
+Creating home directory `/home/tim' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for tim
+Enter the new value, or press ENTER for the default
+	Full Name []: 
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+]0;root@kali: ~[01;31mroot@kali[00m:[01;34m~[00m# addsud[K[K[Kuser tom
+Adding user `tom' ...
+Adding new group `tom' (1001) ...
+Adding new user `tom' (1001) with group `tom' ...
+Creating home directory `/home/tom' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for tom
+Enter the new value, or press ENTER for the default
+	Full Name []: 
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+]0;root@kali: ~[01;31mroot@kali[00m:[01;34m~[00m# exit
+exit
+
+Script done on Thu Feb 22 20:57:25 2018

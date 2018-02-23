@@ -1,0 +1,21 @@
+Script started on Thu Feb 22 20:59:06 2018
+]0;root@kali: [01;31mroot@kali[00m:[01;34m~[00m# cd /etc/
+root@kali: /etc[01;31mroot@kali[00m:[01;34m/etc[00m# cp passwd /passwd_copy 
+root@kali: /etc[01;31mroot@kali[00m:[01;34m/etc[00m# cp shadow /shadow_copy
+root@kali: /etc[01;31mroot@kali[00m:[01;34m/etc[00m# cd /
+root@kali: [01;31mroot@kali[00m:[01;34m/[00m# unshadow passwd_copy shadow_copy >hashes.txt
+root@kali: [01;31mroot@kali[00m:[01;34m/[00m# zcat /usr/share/wordlists/rockyou.txt.gz > wordlist.txt
+root@kali: [01;31mroot@kali[00m:[01;34m/[00m# john hashes.txt -format=sha512crypt -wordlist=wordlist.txt -rules=Jumbo
+Created directory: /root/.john
+Using default input encoding: UTF-8
+Loaded 3 password hashes with 3 different salts (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])
+Press 'q' or Ctrl-C to abort, almost any other key for status
+password         (tim)
+secret123        (tom)
+Wait...2g 0:00:01:37 0.00% (ETA: 2038-01-15 22:26) 0.02048g/s 605.5p/s 780.5c/s 780.5C/s 230482..191184
+Use the "--show" option to display all of the cracked passwords reliably
+Session aborted
+]0;root@kali: /[01;31mroot@kali[00m:[01;34m/[00m# exit
+exit
+
+Script done on Thu Feb 22 21:04:04 2018
