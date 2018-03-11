@@ -21,7 +21,9 @@
  */
 
 /*
-This example runs tests on the AES implementation to verify correct behaviour.
+This example sends and recieves any message accross the CAN bus encrypted.
+Run this code on two Teenys to communicate between them
+I loosely follow J1939 transport layer. This could be improved upon.
 */
 
 #include <Crypto.h>
@@ -46,8 +48,9 @@ int firstSent = 0;
 uint8_t transmittedData[1024];
 uint8_t recievedData[1024];
 uint8_t test1[16];
+byte buffer[16];
 
-struct TestVector
+struct Block
 {
     const char *name;
     byte key[32];
@@ -55,7 +58,7 @@ struct TestVector
     uint8_t ciphertext[16];
 };
 
-TestVector bob = {
+Block encryptionBlock = {
     .name        = "AES-256-ECB",
     .key         = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
                     0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
@@ -69,15 +72,10 @@ TestVector bob = {
 
 AES256 aes256;
 
-byte buffer[16];
-byte buffer2[16];
 
-void recieveBlock(){
-  //when 16 block of data comes in then deccrypt. if less than 32 comes in display error
-}
+
 void sendBlock(){
   
-  //send to bob
   txmsg.id = 0x18ECFF18;
   txmsg.ext = 1;
   txmsg.len = 8;
@@ -85,7 +83,6 @@ void sendBlock(){
   Serial.print("Sending Encryption Block over CAN");
   Serial.println();
   //broadcast message with pgn of 65238, which is reserved value for Network managment
-  //ideally we should set up a RTS and CTS
   //store all values to send
   //I need to vary the size of the message.
        byte transport0[8] = {32,0,16,3,totalBlocks,0xD6,0xFE,0};
@@ -93,7 +90,7 @@ void sendBlock(){
        for( int i = 0; i < 3; i++){
         transport[i][0] = i+1;
         for( int j = 1; j < 8; j++){
-        transport[i][j]= bob.ciphertext[j-1+(7*i)];
+        transport[i][j]= encryptionBlock.ciphertext[j-1+(7*i)];
         spot++;
         if(spot>16){
           transport[i][j] = 0xFF;
@@ -105,35 +102,31 @@ void sendBlock(){
        for (int i = 0;i<8;i++) txmsg.buf[i]=transport0[i];
        Can0.write(txmsg);
        delay(3);
+       
        for(int i = 0; i < 3; i++){
-        //Serial.print("Packet ");
-        //Serial.print(i+1);
-        //Serial.print(":            ");
         for(int j = 0; j < 8; j++){
           txmsg.buf[j] = transport[i][j];
-          //Serial.print(txmsg.buf[j]);
-          //Serial.print(" ");
          }// end for
         Can0.write(txmsg);
-        //Serial.println();
         delay(3);
        }//end forsend
-}//end sendDHK
+       
+}//end send
 
    
 void decryptBlock(BlockCipher *cipher,TestVector *test){
      Serial.println("Decryption ... ");
-    cipher->decryptBlock( test1,test ->ciphertext );
+     cipher->decryptBlock( test1,test ->ciphertext );
      Serial.println("the decrypted block");
-    for(int j = 0; j<16; j++){
+     for(int j = 0; j<16; j++){
       
       recievedData[(j)+(16*(blockNumber-1))] = test1[j];
       Serial.print(char(recievedData[(j)+(16*(blockNumber-1))]));
       test->ciphertext[j] = ' ';
-    }
+     }
 }
+
 void encryptBlock(BlockCipher *cipher,  TestVector *test){
-   
    
     Serial.println("Encryption ... ");
     
@@ -142,7 +135,7 @@ void encryptBlock(BlockCipher *cipher,  TestVector *test){
     for(int i = 0; i<16; i++){
       Serial.print(char(buffer[i]));
       Serial.print(" ");
-      bob.ciphertext[i] = buffer[i];
+      encryptionBlock.ciphertext[i] = buffer[i];
     }
      Serial.println();
 }
@@ -169,13 +162,13 @@ void listenForSerial(){
    //send each block
    for(int k = 0; k<totalBlocks; k++){ 
     for(int j = 0; j<16; j++){
-      bob.plaintext[j] = transmittedData[j+(16*k)];
+      encryptionBlock.plaintext[j] = transmittedData[j+(16*k)];
       //backfill with 1's after message
       if((k == totalBlocks) && (j >= lastBlockSize)){
-        bob.plaintext[j]= 0xFF;
+        encryptionBlock.plaintext[j]= 0xFF;
       }
     }
-    encryptBlock(&aes256, &bob);
+    encryptBlock(&aes256, &encryptionBlock);
     sendBlock();
    }
    i = 0;
@@ -194,7 +187,7 @@ void listenForCan(){
             byteSize = rxmsg.buf[2] + (16*rxmsg.buf[1]);
             Serial.println();
             Serial.println("Broadcast Message Recieved...");
-            id = rxmsg.id; 
+            id = rxmsg.id;
             messageCount = 0;
             
      }
@@ -203,14 +196,14 @@ void listenForCan(){
       if (rxmsg.buf[0] == (messageCount+1)){
        
             messageCount = rxmsg.buf[0];
-           for(int i = 1; i<8; i++){
-              bob.ciphertext[(i-1)+(7*(rxmsg.buf[0]-1))] = rxmsg.buf[i];
-        }
+            for(int i = 1; i<8; i++){
+              encryptionBlock.ciphertext[(i-1)+(7*(rxmsg.buf[0]-1))] = rxmsg.buf[i];
+            }
       }
-          //whole message seen
+      //whole message seen
       if(rxmsg.buf[0] >= 3 && rxmsg.buf[0] != 32){
             firstSent = 0;
-            decryptBlock(&aes256,&bob);
+            decryptBlock(&aes256,&encryptionBlock);
       }
      }
      if(blockNumber >= totalBlocks && messageCount == 3){
@@ -238,14 +231,14 @@ void setup()
     delay(100);
     
     Can0.begin(250000);
-     CAN_filter_t allPassFilter;
+    CAN_filter_t allPassFilter;
     allPassFilter.id=0;
     allPassFilter.ext=1;
     allPassFilter.rtr=0;
   
   //leave the first 4 mailboxes to use the default filter. Just change the higher ones
   for (uint8_t filterNum = 4; filterNum < 16;filterNum++){
-    Can0.setFilter(allPassFilter,filterNum); 
+    Can0.setFilter(allPassFilter,filterNum);
   }
   Serial.println("AES encryption over CAN");
    
