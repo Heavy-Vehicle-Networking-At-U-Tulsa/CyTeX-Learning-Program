@@ -114,7 +114,7 @@ void sendBlock(){
 }//end send
 
    
-void decryptBlock(BlockCipher *cipher,TestVector *test){
+void decryptBlock(BlockCipher *cipher,Block *test){
      Serial.println("Decryption ... ");
      cipher->decryptBlock( test1,test ->ciphertext );
      Serial.println("the decrypted block");
@@ -126,7 +126,7 @@ void decryptBlock(BlockCipher *cipher,TestVector *test){
      }
 }
 
-void encryptBlock(BlockCipher *cipher,  TestVector *test){
+void encryptBlock(BlockCipher *cipher,  Block *test){
    
     Serial.println("Encryption ... ");
     
