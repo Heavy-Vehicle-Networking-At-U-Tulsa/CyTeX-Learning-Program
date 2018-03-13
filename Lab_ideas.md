@@ -65,16 +65,16 @@ labs that have been completed are included in strikethrough.
 
 
 # Encryption
-* Obfuscation - plot different sudo random generators
-* _John, I will let you write these as you have more experience than Me, Hayden, in these areas_
+~* Obfuscation - plot different sudo random generators~ 
+~* _John, I will let you write these as you have more experience than Me, Hayden, in these areas_~ 
 ### Hashing
-* powershell comparing hash files- what are they
-* Power of hash- Windows password crack
+~* powershell comparing hash files- what are they~ 
+~* Power of hash- Windows password crack~ 
 ### Private/Public Keys
-* What is DH? DH over CAN
-* PKI? etc.
+~* What is DH? DH over CAN~ 
+~* PKI? etc.~ 
 ### AES
-* What is. Case use example
+~* What is. Case use example~ 
 
 # Internet
 ### Protocol?
