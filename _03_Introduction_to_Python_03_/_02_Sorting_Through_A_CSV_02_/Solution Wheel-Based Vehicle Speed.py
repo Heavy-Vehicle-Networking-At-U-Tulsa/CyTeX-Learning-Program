@@ -41,11 +41,3 @@ plt.plot(t_abs, wbv_speed_kmh)                                                  
 plt.xlabel("Absolute Time "+"(Seconds)")
 plt.ylabel("Wheel-Based Vehicle Speed "+"(Kilometers Per Hour)")
 plt.show()                                                                      #Prints the graph
-
-#Here on down is the gui code
-import tkinter import *
-class optionWindow(object):
-    top=self.top=TopLevel(master)
-    self.l=Label('File:')
-    self.l
-    
