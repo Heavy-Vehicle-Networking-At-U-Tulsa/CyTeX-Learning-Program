@@ -6,6 +6,7 @@
  * - Arduino Device 
  * - a switch or button
  * - an LED
+ * - a 10 KΩ Resistor
  * 
  * If you do not know where to obtain these pieces by consult your colleagues or
  * supervisor. 
@@ -14,7 +15,9 @@
  * connect the other pin to pin 13 on the board. 
  * 
  * Then connect your switch/button on one end to a 5V source pin. Connect the other 
- * side to a pin that can be read, here we have chosen pin 5. 
+ * side to a pin that can be read, here we have chosen pin 5.
+ * 
+ * Then connect one side of the 10 KΩ resistor to the pin of the switch. Connect the other end to ground.
  * 
  * In this lab you will be creating a button that when pressed turns on a light and 
  * when released the light turns off. 
