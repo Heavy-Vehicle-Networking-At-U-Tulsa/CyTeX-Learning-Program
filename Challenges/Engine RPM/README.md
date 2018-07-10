@@ -11,3 +11,7 @@ Using a BeagleBone Black and a Truck Cape, connect to an engine contoller that i
 
 ### Suggested Materials
 This exercise can be run with any Linux device with CAN hardware. An example of a commercial product with these features is the DG Technologies' Beacon device. An example of a hand built project is the BeagleBone Black with a TU TruckCape.
+
+### Resources
+  * J1939DA
+  * Internet Access (you may want to share your PC's connection sharing)
