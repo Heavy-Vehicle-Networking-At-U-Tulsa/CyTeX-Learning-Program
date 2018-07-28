@@ -3,7 +3,7 @@ Crash course in heavy vehicle communications and cybersecurity with a hands on a
 
 Throughout this course there will be several instances which you will be asked to download software. The ideal OS for completion of this lab will be Windows; however, at times, a Linux operating system may be required. In this case, you will be walked through how to install an Ubuntu VM onto your machine before proceeding. 
 
-Thank you for taking the time to follow through with this course. This content has been created for students at the University of Tulsa to follow during their time learning with the Student CyberTruck Experience Program and other heavy vehicle cyber
+Thank you for taking the time to follow through with this course. This content has been created for students at the University of Tulsa to follow during their time learning with the Student CyberTruck Experience Program and other heavy vehicle cybersecurity programs.
 
 ## Maintenance 
 This repository is a work in progress. Please start a new branch and submit pull requests to improve the content.
