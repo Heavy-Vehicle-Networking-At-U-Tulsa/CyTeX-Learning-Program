@@ -1,6 +1,6 @@
 /*
  * For this lab you will need a potentiometer along with your teensy. Please connect the middle of the pot. to pin 
- * 5, then connect the outside pins to +5V and Ground. 
+ * 14, then connect the outside pins to +5V and Ground. 
  * 
  * A potentiometer is a three-terminal resistor with a sliding or rotating contact that forms an adjustable voltage 
  * divider. If only two terminals are used, one end and the wiper, it acts as a variable resistor or rheostat.
@@ -40,7 +40,7 @@ void setup() {
 void loop() {
   // read the input on analog pin 0:
   
-  int sensorValue = analogRead(A0); // change this to the pin that the middle output of your potentiometer is connected to
+  int sensorValue = analogRead(A0); // change this to the pin that the middle output of your potentiometer is connected to (Hint: Pin 14)
   
   // print out the value you read:
   
