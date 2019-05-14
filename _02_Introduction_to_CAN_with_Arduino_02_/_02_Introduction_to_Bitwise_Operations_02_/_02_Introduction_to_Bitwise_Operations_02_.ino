@@ -88,7 +88,7 @@ void setup() {
 
   //Now we will reconstruct the data chunks back into the original number
   upperHolder = upperHolder<<4;// this moves the binary back to the original location ie 11110000
-  newNumber = upperHolder & lowerHolder;
+  newNumber = upperHolder | lowerHolder;
 
   //Now we will output the reconstructed number. With any success we will have returned to the original number
   Serial.print("Here is the reconstructed number: "); Serial.println(newNumber);
