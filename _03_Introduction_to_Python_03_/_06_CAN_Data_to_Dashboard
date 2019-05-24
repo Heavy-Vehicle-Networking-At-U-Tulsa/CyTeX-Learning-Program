@@ -1,0 +1,207 @@
+import matplotlib.pyplot as plt
+import time
+import math
+from PyQt5.QtWidgets import (QApplication,
+                             QMainWindow,
+                             QWidget,
+                             QPushButton,
+                             QGridLayout,
+                             )
+from PyQt5.QtCore import QTimer
+from pyqtgraph.Qt import QtGui
+
+import pyqtgraph as pg
+
+class MainWindow(QMainWindow):
+    # RPM Variables
+    chartx = []
+    charty = []
+    updatechartx = []
+    updatecharty = []
+    yval = []
+    xval = []
+    yval.append(0)
+    xval.append(0)
+    # MPH variables
+    chartx2 = []
+    charty2 = []
+    updatechartx2 = []
+    updatecharty2 = []
+    yval2 = []
+    xval2 = []
+    yval2.append(0)
+    xval2.append(4)
+    # General timing variables
+    alpha = 0
+    def __init__(self):
+        # The super command makes sure the inhereted class is also initiated.
+        super().__init__()
+        self.setWindowTitle('Select Truck Info to View');
+
+        # Define a main widget that will contain all the other widgets and set it as the central widget.
+        main_widget = QWidget(self)
+        self.setCentralWidget(main_widget)
+        window_layout = QGridLayout(main_widget)
+
+        # Set up button widget
+        new_button = QPushButton("Show RPM + Speed")
+        new_button.clicked.connect(self.start)
+        window_layout.addWidget(new_button, 0, 0, 1, 1)
+
+        # Define the x and y list of points
+        self.y = []
+        self.x = []
+        self.y2 = []
+        self.x2 = []
+
+        # setting up the updating dashboard dials and what info it will plot
+        self.grap = pg.PlotWidget(title="Dashboard")
+        self.grap.setXRange(-2, 6)
+        self.grap.setYRange(-2, 2)
+        self.data = self.grap.plot(self.x, self.y)
+        self.data2 = self.grap.plot(self.x2, self.y2)
+        # setting up the chart and what info it will plot
+        self.chart = pg.PlotWidget(title="Chart")
+        self.chart.setXRange(0, 2)
+        self.chart.setYRange(0, 2)
+        self.cdata = self.chart.plot(self.chartx, self.charty)
+        self.cdata2 = self.chart.plot(self.updatechartx, self.updatecharty)
+        self.c2data = self.chart.plot(self.chartx2, self.charty2)
+        self.c2data2 = self.chart.plot(self.updatechartx2, self.updatecharty2)
+
+        # setting up the dial image behind the updating graph
+        img = QtGui.QImage(r"C:\Users\lapickett\PycharmProjects\Cybertruck\dial2.jpg")
+        imgArray = pg.imageToArray(img, copy=True)
+        imgitem = pg.ImageItem(imgArray)
+        self.grap.addItem(imgitem)
+        imgitem.setZValue(-100)  # make sure image is behind other data
+        imgitem.setRect(pg.QtCore.QRectF(-2, 2, 8, -4))
+
+        # show both the updating graph and the information selector
+        self.grap.show()
+        self.chart.show()
+        self.show()
+
+        # initialize the timer that will decide when the updating graph updates (60 times a second)
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.GUI2)
+        self.timer.start(int(1000/60))  # milliseconds
+
+
+    def start(self):
+        self.graph(38, 41, "FEF100", 0.0024271, 0, .0523598)
+        self.graph(44, 47, "F004", 0.125, 0, .0015708)
+
+
+    # Find within the raw data both timestamps and the objective data
+    def graph(self, a, b, code, mult, offset, dialmult):
+        with open("RawCode.txt") as string:
+            velList = []
+            plotListX = []
+            plotListY = []
+            maxy = 0
+            # Make a list of lines of code, split by (
+            organized = string.read().split(" (")
+
+            # Extract engine speed data from all other data
+            for i in organized:
+                if code in i:
+                    velList.append(i)
+
+            # Convert data from CAN data to engine speed, timestamps and rpm
+            for i in velList:
+                time = float(i[0:10])
+                dec2 = int(i[a:a + 2], 16)
+                dec1 = int(i[b:b + 2], 16)
+                dectot = dec1 * 256 + dec2
+                rpm = float(dectot) * mult + offset
+                plotListX.append(time)
+                plotListY.append(rpm)
+                if (i == 0) or (rpm > maxy):
+                    maxy = rpm
+                print(i)
+            # Resize the chart to fit the data
+            self.chart.setXRange(0, plotListX[len(plotListX)-1])
+            self.chart.setYRange(0, maxy)
+            # Run the FindList function
+            self.FindList(plotListX, plotListY, dialmult, 60)
+
+
+    def FindList(self, timestamp, value, mult, fps):
+
+        # Find how many data points must be saved
+        tf = timestamp[len(timestamp)-1]
+        loops = int(tf * fps)
+        a = 0
+        i = 0
+
+        # Find data points (60 points per second of run time)
+        while a < loops:
+            while timestamp[i] < a/fps:
+                i = i+1
+            # RPM
+            if mult == .0015708:
+                self.yval.append(-math.sin(2.35619 + mult * value[i]))
+                self.xval.append(math.cos(2.35619 + mult * value[i]))
+                self.chartx.append(timestamp[i])
+                self.charty.append(value[i])
+            # MPH
+            else:
+                self.yval2.append(-math.sin(2.35619 + mult * value[i]))
+                self.xval2.append(math.cos(2.35619 + mult * value[i])+4)
+                self.chartx2.append(timestamp[i])
+                self.charty2.append(value[i])
+            a = a+1
+        # Chart the grey lines
+        self.cdata.setData(self.chartx, self.charty)
+        self.c2data.setData(self.chartx2, self.charty2)
+        self.chart.show()
+
+    def GUI2(self):
+        # Changes the data shown to the most up to date data
+        if len(self.y) > 2:
+            self.y.pop()
+            self.x.pop()
+        if len(self.y2) > 2:
+            self.y2.pop()
+            self.x2.pop()
+        # Updates the dials to correct position
+        # RPM
+        self.y.append(self.yval[self.alpha])
+        self.x.append(self.xval[self.alpha])
+        self.data.setData(self.x, self.y, pen='r')
+        # MPH
+        self.y2.append(self.yval2[self.alpha])
+        self.x2.append(self.xval2[self.alpha])
+        self.data2.setData(self.x2, self.y2, pen='r')
+
+        self.grap.show()
+
+        # Updates the red chart to its current state
+        if self.alpha > 1:
+            #RPM
+            self.updatechartx.append(self.chartx[self.alpha])
+            self.updatecharty.append(self.charty[self.alpha])
+            self.cdata2.setData(self.updatechartx, self.updatecharty, pen='r')
+            #MPH
+            self.updatechartx2.append(self.chartx2[self.alpha])
+            self.updatecharty2.append(self.charty2[self.alpha])
+            self.c2data2.setData(self.updatechartx2, self.updatecharty2, pen='r')
+
+            self.chart.show()
+
+        # Clears the red charts when the data finishes displaying
+        if self.alpha <= 1:
+            self.updatechartx.clear()
+            self.updatecharty.clear()
+            self.updatechartx2.clear()
+            self.updatecharty2.clear()
+        # This part ensures there is no error thrown for only 1 data point, and it allows the program to loop
+        self.alpha = self.alpha + 1
+        if self.alpha >= len(self.yval2)-1:
+            self.alpha = 0
+
+
+app = QApplication([])
+execute = MainWindow()
+app.exec_()
